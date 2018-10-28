@@ -1,4 +1,4 @@
-const make = (...outerArgs) => {
+module.exports = function make(...outerArgs) {
   const stack = [];
 
   const wrapp = (...innerArgs) => {
@@ -13,9 +13,3 @@ const make = (...outerArgs) => {
   };
   return wrapp(...outerArgs);
 };
-
-const sum = (a, b) => a + b;
-const sub = (a, b) => a - b;
-
-console.log(make(15)(34, 21, 666)(41)(sum)); // return 777
-console.log(make(15)(34, 21, 666)(41)(sub)); // return -747
